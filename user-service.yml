@@ -1,0 +1,34 @@
+logging:
+  level:
+    root: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [${spring.application.name}] %-5level %logger{36} - %msg%n"
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/storypost
+    username: springstudent
+    password: springstudent
+    # driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+jwt:
+  secret: c2VjdXJlS2V5Zm9ySlNXVC0xMjM0NTY= # echo "MySuperSecretJWTKey123456" | base64
+  expiration: 3600000 # 1 hour in milliseconds
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    oauth:
+      use-pkce-with-authorization-code-grant: true
+  paths-to-match: "/**" # Define the API base path
+  default-produces-media-type: application/json
