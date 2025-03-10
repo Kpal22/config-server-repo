@@ -1,0 +1,25 @@
+logging:
+  level:
+    root: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [${spring.application.name}] %-5level %logger{36} - %msg%n"
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    oauth:
+      use-pkce-with-authorization-code-grant: true
+  paths-to-match: "/**" # Define the API base path
+  default-produces-media-type: application/json
